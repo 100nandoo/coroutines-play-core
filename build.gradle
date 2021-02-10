@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply from: '../android_commons.gradle'
+
+android {
+    buildTypes {
+        debug {}
+
+        beta {}
+
+        preprod {}
+
+        release {}
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.20"
+    implementation KotlinLibraries.kotlinCoroutineCore
+
+    api("com.google.android.play:core:1.9.1") {
+        exclude group: 'com.android.support'
+    }
+}
